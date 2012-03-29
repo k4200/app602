@@ -12,10 +12,6 @@
 // Defined in 'AppInfo.php'
 require_once('AppInfo.php');
 
-// test
-require_once('lib/Db.class.php');
-Db::connect();
-
 
 // Enforce https on production
 if (substr(AppInfo::getUrl(), 0, 8) != 'https://' && $_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
