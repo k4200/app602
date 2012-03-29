@@ -233,10 +233,7 @@ $app_name = idx($app_info, 'name', '');
         <h1>Bienvenue, <strong><?php echo he(idx($basic, 'name')); ?></strong></h1>
           <a href="<?php echo he(idx($app_info, 'link'));?>" target="_top"><?php echo he($app_name); ?></a>
       <?php } else { ?>
-      <div>
-        <h1>Welcome</h1>
-        <div class="fb-login-button" data-scope="user_likes,user_photos"></div>
-      </div>
+        <div class="fb-login-button" data-scope="user_events,user_photos"></div>
       <?php } ?>
 
 
