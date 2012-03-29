@@ -264,10 +264,8 @@ $app_name = idx($app_info, 'name', '');
 	      <?php if($i %3 == 0) { ?>
 		<div class="one-third column">
 		<?php } ?>
-
-
 			<div class = "imgDaFrame">
-			<img src="scripts/timthumb.php?src=images/johnDoe.jpeg&h=150&w=150&zc=1" alt="aaa" width="150" height="150" /><br/><a>Your Event Img<p/>
+			<img src="scripts/timthumb.php?src=images/johnDoe.jpeg&h=150&w=150&zc=1" alt="aaa" width="150" height="150" /><br/><a><?php echo he($item); ?><p/>
 			</div>
 
 	      <?php if($i %3 == 0) { ?>
