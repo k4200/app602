@@ -13,7 +13,7 @@ if ($db = A602_Db::connect()) {
                 created DATE DEFAULT (datetime('now','localtime'))
             )";
   try {
-    $db->query($sql1);
+    $db->query($sql);
     print "setup complete";
   }
   catch (PDOException $e) {
