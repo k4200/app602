@@ -64,7 +64,7 @@ if ($user_id) {
       return $v['id'];
     }, $events_api);
 
-  $db = Db::connect();
+  $db = A602_Db::connect();
   $events_db = array();
   foreach($event_ids as $event_id) {
     $result = $db->fetchAll("SELECT id, name, url FROM pictures WHERE event_id = ?",
