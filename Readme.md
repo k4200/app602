@@ -1,6 +1,10 @@
 Facebook/Heroku sample app -- PHP
 =================================
 
+Facebook Mobile Hack Tokyoで作った(作りかけの)アプリ。初めてHerokuを使ったのでかなり手こずって完成に至らず。
+
+
+
 This is a sample app showing use of the Facebook Graph API, written in PHP, designed for deployment to [Heroku](http://www.heroku.com/).
 
 Run locally
