@@ -1,4 +1,5 @@
 <?php
+ini_set( “display_errors”, E_ALL);
 
 function add_include_path ($path) {
   foreach (func_get_args() AS $path)  {
