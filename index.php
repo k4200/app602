@@ -244,13 +244,14 @@ $app_name = idx($app_info, 'name', '');
       if ($user_id) {
     ?>
 
-    <section id="samples" class="clearfix">
-      <h1>Examples of the Facebook Graph API</h1>
-
-      <div class="list">
-        <h3>Events</h3>
-        <ul class="things">
+    <div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">Six Oh To</h1>
+			<h5>Version 1.1</h5>
+			<hr />
+		</div>
           <?php
+    $i = 0;
             foreach ($events as $event) {
               // Extract the pieces of info we need from the requests above
               $id = idx($event, 'id');
@@ -259,16 +260,24 @@ $app_name = idx($app_info, 'name', '');
               // This display's the object that the user liked as a link to
               // that object's page.
           ?>
-          <li>
-            <a href="https://www.facebook.com/<?php echo he($id); ?>" target="_top">
-              <img src="https://graph.facebook.com/<?php echo he($id) ?>/picture?type=square" alt="<?php echo he($item); ?>">
-              <?php echo he($item); ?>
-            </a>
-          </li>
+
+	      <?php if($i %3 == 0) { ?>
+		<div class="one-third column">
+		<?php } ?>
+
+
+			<div class = "imgDaFrame">
+			<img src="scripts/timthumb.php?src=images/johnDoe.jpeg&h=150&w=150&zc=1" alt="aaa" width="150" height="150" /><br/><a>Your Event Img<p/>
+			</div>
+
+	      <?php if($i %3 == 0) { ?>
+		</div>
+		<?php } ?>
+
           <?php
+		$i++;
             }
           ?>
-        </ul>
       </div>
     <?php
       }

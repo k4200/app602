@@ -1,0 +1,17 @@
+/*Let me do mah thang*/
+body{
+	
+	background-image: url('../images/newBg.jpg');
+}
+
+a{
+color:red;
+}
+
+.imgDaFrame img{
+	border: 3px solid white;
+	
+	-moz-box-shadow: 0 0 5px 5px #333;
+-webkit-box-shadow: 0 0 5px 5px#333;
+box-shadow: 0 0 5px 5px #333;
+}
