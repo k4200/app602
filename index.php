@@ -59,7 +59,26 @@ if ($user_id) {
   // This fetches some things that you like . 'limit=*" only returns * values.
   // To see the format of the data you are retrieving, use the "Graph API
   // Explorer" which is at https://developers.facebook.com/tools/explorer/
-  $events = idx($facebook->api('/me/events?limit=10'), 'data', array());
+  $events_api = idx($facebook->api('/me/events?limit=10'), 'data', array());
+  $event_ids = array_map(function($v) {
+      return $v['id'];
+    }, $_events);
+
+  $db = Db::connect();
+  $events_db = array();
+  foreach($event_ids as $event_id) {
+    $result = $db->fetchAll("SELECT id, name, url FROM pictures WHERE event_id = ?",
+			    array($event_id));
+    $events_db[$event_id] = $result;
+  }
+
+  $events = array();
+  foreach($events_api as $event) {
+    $tmp = $event;
+    $tmp['image'] = $events_db[$tmp['id']]['url'] ?: 'http://example.com/a.jpg';
+    $events[] = $event;
+  }
+  print_r($events);
 
   // Here is an example of a FQL call that fetches all of your friends that are
   // using this app
@@ -265,7 +284,7 @@ $app_name = idx($app_info, 'name', '');
 		<div class="one-third column">
 		<?php } ?>
 			<div class = "imgDaFrame">
-			<img src="scripts/timthumb.php?src=images/johnDoe.jpeg&h=150&w=150&zc=1" alt="aaa" width="150" height="150" /><br/><a><?php echo he($item); ?><p/>
+			<img src="scripts/timthumb.php?src=images/johnDoe.jpeg&h=150&w=150&zc=1" alt="aaa" width="150" height="150" /><br/><a><?php echo he($item); ?></a>
 			</div>
 
 	      <?php if($i %3 == 0) { ?>
