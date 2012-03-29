@@ -1,5 +1,8 @@
 <?php
 
+require_once(__DIR__ . '/lib/boot.inc.php');
+
+
 /**
  * This sample app is provided to kickstart your experience using Facebook's
  * resources for developers.  This sample app provides examples of several
