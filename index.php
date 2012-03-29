@@ -62,7 +62,7 @@ if ($user_id) {
   $events_api = idx($facebook->api('/me/events?limit=10'), 'data', array());
   $event_ids = array_map(function($v) {
       return $v['id'];
-    }, $_events);
+    }, $events_api);
 
   $db = Db::connect();
   $events_db = array();
