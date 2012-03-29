@@ -8,6 +8,7 @@ class A602_Db {
       throw new Exception('DATABASE_URL is not set');
     }
     else {
+      $url = parse_url($_ENV["DATABASE_URL"]);
       $config = 
 	array('host'     => $url['host'],
 	      'username' => $url['user'],
