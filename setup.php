@@ -10,7 +10,7 @@ if ($db = A602_Db::connect()) {
                 url VARCHAR(255),
                 name VARCHAR (100),
                 event_id BIGINT,
-                created DATE DEFAULT (datetime('now','localtime'))
+                created DATE DEFAULT current_time
             )";
   try {
     $db->query($sql);
